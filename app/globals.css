@@ -30,4 +30,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .btn-square {
+    @apply text-white p-9 h-[50px] bg-yellow-600 flex justify-center items-center rounded-md;
+    transition: transform 0.2s ease-in-out;  /* Smooth transition */
+  }
+  
+  .btn-square:active {
+    transform: scale(1.1); /* Increase size by 5% on click */
+  }  
+  
 }
+
+
