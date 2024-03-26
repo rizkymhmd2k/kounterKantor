@@ -11,18 +11,18 @@ export default function Home() {
         // Check if the counter exists
         const existingCounterValue = await getCounterValue();
         // console.log('Existing Counter Value:', existingCounterValue);
-  
+
         if (existingCounterValue !== null) {
           // Counter exists, set the counter value and return
           // console.log('Counter exists, setting counter value:', existingCounterValue);
           setCounter(existingCounterValue || 0);
           return;
         }
-  
+
         // Initialize the counter since it doesn't exist
         console.log('Counter does not exist, initializing...');
         await initializeCounter();
-  
+
         // Fetch the counter value after initialization
         const counterValue = await getCounterValue();
         // console.log('New counter value after initialization:', counterValue);
@@ -31,10 +31,10 @@ export default function Home() {
         console.error("Error fetching counter value:", error);
       }
     }
-  
+
     fetchData(); // Fetch initial counter value on component mount
   }, []);
-  
+
 
   const addNum = async () => {
     try {
@@ -64,14 +64,19 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full items-center justify-center text-[90px] bg-slate-900 text-neutral-300">
-      <p className="text-[40px]">Antrian</p>
-      <p className="font-bold text-[300px]">{counter}</p>
-      <div className="flex gap-2 text-[40px]">
-        <button className="btn-square" onClick={subtractNum}>-</button>
-        <button className="btn-square text-[20px]" onClick={resetNum}>RESET</button>
-        <button className="btn-square" onClick={addNum}>+</button>
+    <>
+      <div className="flex flex-col h-screen w-full items-center justify-center text-[90px] bg-slate-900 text-neutral-300">
+        <p className="text-[40px]">Antrian</p>
+        <p className="font-bold text-[300px]">{counter}</p>
+        <div className="flex gap-2 text-[40px]">
+          <button className="btn-square" onClick={subtractNum}>-</button>
+          <button className="btn-square text-[20px]" onClick={resetNum}>RESET</button>
+          <button className="btn-square" onClick={addNum}>+</button>
+        </div>
       </div>
-    </div>
+      <div className="flex justify-center text-[10px]  bg-slate-900 items-center ">
+        <p className="mb-5">made with ♡ by Rizky</p>
+      </div>
+    </>
   );
 }
